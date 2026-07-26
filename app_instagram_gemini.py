@@ -30,7 +30,7 @@ VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN", "mi_token_secreto")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
-modelo = genai.GenerativeModel("gemini-2.5-flash")
+modelo = genai.GenerativeModel("gemini-flash-latest")
 
 # Memoria simple en RAM por usuario (se pierde si el server reinicia)
 conversaciones = {}
