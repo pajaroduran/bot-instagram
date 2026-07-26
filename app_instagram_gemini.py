@@ -33,6 +33,7 @@ def verificar_webhook():
 @app.route("/webhook", methods=["POST"])
 def recibir_mensaje():
     data = request.get_json()
+    print("PAYLOAD RECIBIDO:", data)  # línea temporal de depuración
     try:
         for entry in data.get("entry", []):
             for evento in entry.get("messaging", []):
@@ -44,8 +45,9 @@ def recibir_mensaje():
                 texto_usuario = evento["message"]["text"]
                 respuesta = preguntar_a_gemini(remitente, texto_usuario)
                 enviar_instagram(remitente, respuesta)
-    except (KeyError, IndexError):
-        pass
+    except (KeyError, IndexError) as e:
+        print("ERROR AL PROCESAR:", e)
+
     return jsonify({"status": "ok"}), 200
 
 
