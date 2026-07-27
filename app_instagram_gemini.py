@@ -15,7 +15,7 @@ VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN", "mi_token_secreto")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
-modelo = genai.GenerativeModel("gemini-2.5-flash-lite")
+modelo = genai.GenerativeModel("gemini-flash-latest")
 
 conversaciones = {}
 
